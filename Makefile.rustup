@@ -1,0 +1,28 @@
+################################################################################
+# rustupのインストール(https://rustup.rs/)
+# $ make install
+################################################################################
+.PHONY: install
+install:
+	curl --proto '=https' --tlsv1.2 --silent --show-error --fail https://sh.rustup.rs | sh
+
+################################################################################
+# rustup自体のupdateをしてから、rustもupdate
+# $ make update
+################################################################################
+.PHONY: update
+update:
+	make version
+	rustup self update
+	rustup update
+	make version
+
+################################################################################
+# Versionの確認
+# $ make version
+################################################################################
+.PHONY: version
+version:
+	rustup --version
+	rustc --version
+	cargo --version
