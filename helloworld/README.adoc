@@ -1,0 +1,7 @@
+= HelloWolrd
+
+----
+$ make compile
+$ make run
+$ make clean
+----
