@@ -15,3 +15,11 @@ gitignore:
 .PHONY: cargo-new-hello
 cargo-new-hello:
 	cargo new cargo_hello --bin
+
+################################################################################
+# cargo new
+# $ make cargo-new-guessing
+################################################################################
+.PHONY: cargo-new-guessing
+cargo-new-guessing:
+	cargo new gussing_game --bin
