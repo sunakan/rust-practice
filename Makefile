@@ -23,3 +23,11 @@ cargo-new-hello:
 .PHONY: cargo-new-guessing
 cargo-new-guessing:
 	cargo new gussing_game --bin
+
+################################################################################
+# cargo new
+# $ make cargo-new-variables
+################################################################################
+.PHONY: cargo-new-variables
+cargo-new-variables:
+	cargo new variables --bin
