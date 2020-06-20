@@ -47,3 +47,11 @@ cargo-new-ownership:
 .PHONY: cargo-new-structure
 cargo-new-structure:
 	cargo new structure --bin
+
+################################################################################
+# cargo new
+# $ make cargo-new-enum
+################################################################################
+.PHONY: cargo-new-enum-practice
+cargo-new-enum-practice:
+	cargo new enum-practice --bin
