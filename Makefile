@@ -31,3 +31,11 @@ cargo-new-guessing:
 .PHONY: cargo-new-variables
 cargo-new-variables:
 	cargo new variables --bin
+
+################################################################################
+# cargo new
+# $ make cargo-new-ownership
+################################################################################
+.PHONY: cargo-new-ownership
+cargo-new-ownership:
+	cargo new ownership --bin
