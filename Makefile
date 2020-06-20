@@ -14,15 +14,17 @@ gitignore:
 ################################################################################
 .PHONY: cargo-new-hello
 cargo-new-hello:
-	cargo new cargo_hello --bin
+	ls cargo_hello \
+	|| cargo new cargo_hello --bin
 
 ################################################################################
-# cargo new
+# cargo new(typo発見したが気にしない)
 # $ make cargo-new-guessing
 ################################################################################
 .PHONY: cargo-new-guessing
 cargo-new-guessing:
-	cargo new gussing_game --bin
+	ls gussing_game \
+	|| cargo new gussing_game --bin
 
 ################################################################################
 # cargo new
@@ -30,7 +32,8 @@ cargo-new-guessing:
 ################################################################################
 .PHONY: cargo-new-variables
 cargo-new-variables:
-	cargo new variables --bin
+	ls variables \
+	|| cargo new variables --bin
 
 ################################################################################
 # cargo new
@@ -38,7 +41,8 @@ cargo-new-variables:
 ################################################################################
 .PHONY: cargo-new-ownership
 cargo-new-ownership:
-	cargo new ownership --bin
+	ls ownership \
+	|| cargo new ownership --bin
 
 ################################################################################
 # cargo new
@@ -46,7 +50,8 @@ cargo-new-ownership:
 ################################################################################
 .PHONY: cargo-new-structure
 cargo-new-structure:
-	cargo new structure --bin
+	ls structure \
+	|| cargo new structure --bin
 
 ################################################################################
 # cargo new
@@ -54,4 +59,24 @@ cargo-new-structure:
 ################################################################################
 .PHONY: cargo-new-enum-practice
 cargo-new-enum-practice:
-	cargo new enum-practice --bin
+	ls enum-practice \
+	|| cargo new enum-practice --bin
+
+################################################################################
+# cargo new
+# $ make cargo-new-communicator
+################################################################################
+.PHONY: cargo-new-communicator
+cargo-new-communicator:
+	ls communicator \
+	|| cargo new communicator --lib
+
+################################################################################
+# Distribute Makefile.cargo-template as Makefile
+# $ make distribute-makefile
+################################################################################
+.PHONY: distribute-makefile
+distribute-makefile:
+	ls -1 ./*/Cargo.toml \
+	| xargs -I {path} dirname {path} \
+	| xargs -I {path} cp ./Makefile.cargo-template {path}/Makefile

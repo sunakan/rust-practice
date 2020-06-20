@@ -1,16 +1,10 @@
 ################################################################################
-# Variable
-################################################################################
-GITIGNORE_URL := https://www.toptal.com/developers/gitignore/api/rust,intellij+all,linux,macos,windows,vim,emacs
-
-################################################################################
 # download .gitignore
 # $ make gitignore
 ################################################################################
 .PHONY: gitignore
 gitignore:
-	ls .gitignore \
-	|| curl --output .gitignore $(GITIGNORE_URL)
+	curl --output .gitignore https://www.toptal.com/developers/gitignore/api/rust,intellij+all,linux,macos,windows,vim,emacs
 
 ################################################################################
 # cargo build
