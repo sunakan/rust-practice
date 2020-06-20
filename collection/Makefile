@@ -1,5 +1,3 @@
-include Makefile.rustup
-
 ################################################################################
 # download .gitignore
 # $ make gitignore
@@ -9,83 +7,96 @@ gitignore:
 	curl --output .gitignore https://www.toptal.com/developers/gitignore/api/rust,intellij+all,linux,macos,windows,vim,emacs
 
 ################################################################################
-# cargo new
-# $ make cargo-new-hello
+# cargo build
+# $ make build
 ################################################################################
-.PHONY: cargo-new-hello
-cargo-new-hello:
-	ls cargo_hello \
-	|| cargo new cargo_hello --bin
+.PHONY: build
+build:
+	cargo build
 
 ################################################################################
-# cargo new(typo発見したが気にしない)
-# $ make cargo-new-guessing
+# cargo run
+# $ make run
 ################################################################################
-.PHONY: cargo-new-guessing
-cargo-new-guessing:
-	ls gussing_game \
-	|| cargo new gussing_game --bin
+.PHONY: run
+run:
+	cargo run
 
 ################################################################################
-# cargo new
-# $ make cargo-new-variables
+# cargo check
+# $ make check
 ################################################################################
-.PHONY: cargo-new-variables
-cargo-new-variables:
-	ls variables \
-	|| cargo new variables --bin
+.PHONY: check
+check:
+	cargo check
 
 ################################################################################
-# cargo new
-# $ make cargo-new-ownership
+# cargo update
+# $ make update
 ################################################################################
-.PHONY: cargo-new-ownership
-cargo-new-ownership:
-	ls ownership \
-	|| cargo new ownership --bin
+.PHONY: update
+update:
+	cargo update
 
 ################################################################################
-# cargo new
-# $ make cargo-new-structure
+# cargo doc
+# $ make doc
 ################################################################################
-.PHONY: cargo-new-structure
-cargo-new-structure:
-	ls structure \
-	|| cargo new structure --bin
+.PHONY: doc
+doc:
+	cargo doc
 
 ################################################################################
-# cargo new
-# $ make cargo-new-enum
+# cargo docしたやつをnginx dockerで見えるようにする
+# $ make doc-docker
 ################################################################################
-.PHONY: cargo-new-enum-practice
-cargo-new-enum-practice:
-	ls enum-practice \
-	|| cargo new enum-practice --bin
+DOCKER_NGINX_TAG  := stable
+DOCKER_NGINX_HOST := nginx
+.PHONY: doc-docker
+doc-docker: doc
+	( docker container ls | grep $(DOCKER_NGINX_HOST) ) \
+	|| docker run \
+		--detach \
+		--rm \
+		--interactive \
+		--tty \
+		--name $(DOCKER_NGINX_HOST) \
+		--hostname $(DOCKER_NGINX_HOST) \
+		--user $(id -u):$(id -g) \
+		--publish 80:80 \
+		--mount type=bind,source=$(PWD)/target/doc/,target=/usr/share/nginx/html/ \
+		nginx:$(DOCKER_NGINX_TAG)
+	echo Please open http://HOST/gussing_game/index.html
 
 ################################################################################
-# cargo new
-# $ make cargo-new-communicator
+# nginxを落とす
+# $ make clean
 ################################################################################
-.PHONY: cargo-new-communicator
-cargo-new-communicator:
-	ls communicator \
-	|| cargo new communicator --lib
+.PHONY: clean
+clean:
+	docker container ls --quiet --filter 'name=$(DOCKER_NGINX_HOST)' \
+	| xargs -I {container-id} docker container stop {container-id}
 
 ################################################################################
-# cargo new
-# $ make cargo-new-collection
+# rustup component add rustfmt
+# $ make add-rustfmt
 ################################################################################
-.PHONY: cargo-new-collection
-cargo-new-collection:
-	ls collection \
-	|| cargo new collection --bin
+.PHONY: add-rustfmt
+add-rustfmt:
+	rustup component add rustfmt
 
 ################################################################################
-# Distribute Makefile.cargo-template as Makefile
-# $ make distribute-makefile
+# cargo rustfmt
+# $ make fmt
 ################################################################################
-.PHONY: distribute-makefile
-distribute-makefile:
-	ls -1 ./*/Cargo.toml \
-	| xargs -I {path} dirname {path} \
-	| xargs -I {path} cp ./Makefile.cargo-template {path}/Makefile
+.PHONY: fmt
+fmt:
+	cargo fmt
+
+################################################################################
+# cargo test
+# $ make test
+################################################################################
+.PHONY: test
+test:
+	cargo test
