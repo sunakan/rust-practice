@@ -39,3 +39,11 @@ cargo-new-variables:
 .PHONY: cargo-new-ownership
 cargo-new-ownership:
 	cargo new ownership --bin
+
+################################################################################
+# cargo new
+# $ make cargo-new-structure
+################################################################################
+.PHONY: cargo-new-structure
+cargo-new-structure:
+	cargo new structure --bin
