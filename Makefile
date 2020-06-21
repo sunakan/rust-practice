@@ -99,6 +99,15 @@ cargo-new-generic-trait-lifetime:
 	|| cargo new generic-trait-lifetime --bin
 
 ################################################################################
+# cargo new
+# $ make cargo-new-adder
+################################################################################
+.PHONY: cargo-new-adder
+cargo-new-adder:
+	ls adder \
+	|| cargo new adder --lib
+
+################################################################################
 # Distribute Makefile.cargo-template as Makefile
 # $ make distribute-makefile
 ################################################################################
