@@ -108,6 +108,15 @@ cargo-new-adder:
 	|| cargo new adder --lib
 
 ################################################################################
+# cargo new
+# $ make cargo-new-minigrep
+################################################################################
+.PHONY: cargo-new-minigrep
+cargo-new-minigrep:
+	ls minigrep \
+	|| cargo new minigrep --lib
+
+################################################################################
 # Distribute Makefile.cargo-template as Makefile
 # $ make distribute-makefile
 ################################################################################
