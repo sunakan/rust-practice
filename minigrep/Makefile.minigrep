@@ -5,3 +5,20 @@
 .PHONY: run-the-poem
 run-the-poem:
 	cargo run the poem.txt
+
+################################################################################
+# cargo run to poem.txt
+# $ make run-to-poem
+################################################################################
+.PHONY: run-to-poem
+run-to-poem:
+	unset CASE_INSENSITIVE && cargo run to poem.txt
+	CASE_INSENSITIVE=1 && cargo run to poem.txt
+
+################################################################################
+# わざとエラーさせる
+# $ make run-error
+################################################################################
+.PHONY: run-error
+run-error:
+	cargo run > output.txt
