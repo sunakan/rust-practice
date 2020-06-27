@@ -1,0 +1,16 @@
+----
+$ mkdir add
+$ cd add
+$ vim Cargo.toml
+----
+
+----
+$ cargo new --bin adder
+$ cargo build
+----
+
+----
+$ vim Cargo.toml
+$ cargo new --lib add-one
+$ cargo build
+----

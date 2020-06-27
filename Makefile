@@ -117,6 +117,25 @@ cargo-new-minigrep:
 	|| cargo new minigrep --lib
 
 ################################################################################
+# cargo new
+# $ make cargo-new-iterator-closure
+################################################################################
+.PHONY: cargo-new-iterator-closure
+cargo-new-iterator-closure:
+	ls iterator-closure \
+	|| cargo new iterator-closure --lib
+
+################################################################################
+# cargo new
+# $ make cargo-new-iterator-closure
+################################################################################
+.PHONY: cargo-new-iterator-closure
+cargo-new-iterator-closure:
+	ls iterator-closure \
+	|| cargo new iterator-closure --lib
+
+
+################################################################################
 # Distribute Makefile.cargo-template as Makefile
 # $ make distribute-makefile
 ################################################################################
