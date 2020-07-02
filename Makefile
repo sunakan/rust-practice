@@ -144,6 +144,15 @@ cargo-new-smart-pointer:
 	|| cargo new smart-pointer --lib
 
 ################################################################################
+# cargo new
+# $ make cargo-new-messanger
+################################################################################
+.PHONY: cargo-new-messanger
+cargo-new-messanger:
+	ls messanger \
+	|| cargo new messanger --lib
+
+################################################################################
 # Distribute Makefile.cargo-template as Makefile
 # $ make distribute-makefile
 ################################################################################
