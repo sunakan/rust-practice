@@ -134,6 +134,14 @@ cargo-new-iterator-closure:
 	ls iterator-closure \
 	|| cargo new iterator-closure --lib
 
+################################################################################
+# cargo new
+# $ make cargo-new-smart-pointer
+################################################################################
+.PHONY: cargo-new-smart-pointer
+cargo-new-smart-pointer:
+	ls smart-pointer \
+	|| cargo new smart-pointer --lib
 
 ################################################################################
 # Distribute Makefile.cargo-template as Makefile
