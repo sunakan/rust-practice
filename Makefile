@@ -153,6 +153,15 @@ cargo-new-messanger:
 	|| cargo new messanger --lib
 
 ################################################################################
+# cargo new
+# $ make cargo-new-refcell-conslist
+################################################################################
+.PHONY: cargo-new-refcell-conslist
+cargo-new-refcell-conslist:
+	ls refcell-conslist \
+	|| cargo new refcell-conslist --lib
+
+################################################################################
 # Distribute Makefile.cargo-template as Makefile
 # $ make distribute-makefile
 ################################################################################
