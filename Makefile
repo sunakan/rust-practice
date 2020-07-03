@@ -162,6 +162,16 @@ cargo-new-refcell-conslist:
 	|| cargo new refcell-conslist --lib
 
 ################################################################################
+# cargo new
+# $ make cargo-new-circular-reference
+################################################################################
+.PHONY: cargo-new-circular-reference
+cargo-new-circular-reference:
+	ls circular-reference \
+	|| cargo new circular-reference --bin
+
+
+################################################################################
 # Distribute Makefile.cargo-template as Makefile
 # $ make distribute-makefile
 ################################################################################
