@@ -170,6 +170,14 @@ cargo-new-circular-reference:
 	ls circular-reference \
 	|| cargo new circular-reference --bin
 
+################################################################################
+# cargo new
+# $ make cargo-new-spawn
+################################################################################
+.PHONY: cargo-new-spawn
+cargo-new-spawn:
+	ls spawn \
+	|| cargo new spawn --bin
 
 ################################################################################
 # Distribute Makefile.cargo-template as Makefile
