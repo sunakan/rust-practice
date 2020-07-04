@@ -188,6 +188,14 @@ cargo-new-channel:
 	ls channel \
 	|| cargo new channel --bin
 
+################################################################################
+# cargo new
+# $ make cargo-new-oop
+################################################################################
+.PHONY: cargo-new-oop
+cargo-new-oop:
+	ls oop \
+	|| cargo new oop --lib
 
 ################################################################################
 # Distribute Makefile.cargo-template as Makefile
