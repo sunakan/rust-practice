@@ -180,6 +180,16 @@ cargo-new-spawn:
 	|| cargo new spawn --bin
 
 ################################################################################
+# cargo new
+# $ make cargo-new-channel
+################################################################################
+.PHONY: cargo-new-channel
+cargo-new-channel:
+	ls channel \
+	|| cargo new channel --bin
+
+
+################################################################################
 # Distribute Makefile.cargo-template as Makefile
 # $ make distribute-makefile
 ################################################################################
