@@ -66,7 +66,7 @@ doc-docker: doc
 		--publish 80:80 \
 		--mount type=bind,source=$(PWD)/target/doc/,target=/usr/share/nginx/html/ \
 		nginx:$(DOCKER_NGINX_TAG)
-	echo Please open http://HOST/gussing_game/index.html
+	echo Please open http://HOST/$(shell basename $(PWD))/index.html
 
 ################################################################################
 # nginxを落とす
